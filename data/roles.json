@@ -1,0 +1,14 @@
+{
+  "cox": {
+    "name": "cox", 
+    "desc": "This role is for advanced Chambers of Xeric members",
+    "emoji": "<:cox:584345639496974366>",
+    "roleID": "1070527234835763320"
+  },
+  "tob": {
+    "name": "tob",
+    "desc": "This role is for advanced Theater of Blood members",
+    "emoji": "<:tob:584345639450705932>",
+    "roleID": "1070527385025388604"
+  }
+}

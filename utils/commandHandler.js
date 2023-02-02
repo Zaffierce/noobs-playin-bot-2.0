@@ -1,6 +1,9 @@
+const { EmbedBuilder } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
 const fs = require('fs');
+const superagent = require('superagent');
+const config = require('../data/config.json');
 require('dotenv').config();
 const { TOKEN, CLIENTID, GUILDID, MODERATOR_ROLE_ID } = process.env;
 const rest = new REST({ version: '10'}).setToken(TOKEN);
@@ -53,6 +56,17 @@ const deploySingleCommand = async (cmd) => {
     .catch(console.error);
 }
 
+const deleteSingleCommand = async (commandID) => {
+  try {
+    return await rest.delete(Routes.applicationGuildCommand(CLIENTID, GUILDID, commandID))
+    .then(() => {
+      return { status: 200, msg: "Successfully deleted" }
+    })
+  } catch (e) {
+    return { status: e.status, msg: "ERROR" }
+  }
+}
+
 const deleteAllCommands = async () => {
   const commands = await getCommands();
   for (i in commands) {
@@ -61,6 +75,33 @@ const deleteAllCommands = async () => {
   }
   console.log("All commands have been deleted, shutting down Bot.");
   process.kill(process.pid);
+}
+
+const checkRW = async (username, bot) => {
+  let embed;
+  superagent.get(`https://runewatch.com/api/v2/rsn/${username}`).then(res => {
+    Object.keys(res.body).forEach(key => {
+      embed = new EmbedBuilder()
+        .setColor("Red")
+        .setTitle(`RuneWatch results ${res.body[key].rsn}`)
+        .setDescription(res.body[key].type)
+        .addFields(
+          { name: "Details", value: `• Date of abuse: <t:${res.body[key].date_of_abuse}>\n• Link: ${res.body[key].url}` }
+        )
+      bot.channels.cache.get(config.runewatch_channel_ID).send({ embeds: [embed] });
+    });
+  }).catch((e) => {
+    if (e.status == "404") {
+      embed = new EmbedBuilder()
+        .setColor("Green")
+        .setTitle(`RuneWatch results for ${username}`)
+        .setDescription("No results found!")
+      bot.channels.cache.get(config.runewatch_channel_ID).send({ embeds: [embed] });
+    } else {
+      bot.channels.cache.get(config.runewatch_channel_ID).send({ content: `An unhandled error has occured while checking RuneWatch for ${username}`});
+      console.log(e);
+    }
+  });
 }
 
 // const setAsAdminCommand = async (commandID, commandName) => {
@@ -86,5 +127,6 @@ const deleteAllCommands = async () => {
 
 module.exports = {
   start,
-  deleteAllCommands
+  deleteAllCommands,
+  checkRW
 }

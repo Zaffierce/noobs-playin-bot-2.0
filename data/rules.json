@@ -1,0 +1,76 @@
+{
+  "general": {
+    "1": {
+      "ruleNum": 1,
+      "ruleDesc": "Behave yourself and respect the other members of this community."
+    },
+    "2": {
+      "ruleNum": 2,
+      "ruleDesc": "Obey star ranks."
+    },
+    "3": {
+      "ruleNum": 3,
+      "ruleDesc": "Toxic or hateful comments on Discord or in the clan chat won't be tolerated."
+    },
+    "4": {
+      "ruleNum": 4,
+      "ruleDesc": "No E-dating within our community. Yes this is a real rule."
+    },
+    "5": {
+      "ruleNum": 5,
+      "ruleDesc": "No scamming in this community will be tolerated. Offenders will be trialed on Runewatch."
+    },
+    "6": {
+      "ruleNum": 6,
+      "ruleDesc": "Violating Jagex code of conduct will not be tolerated."
+    },
+    "7": {
+      "ruleNum": 7,
+      "ruleDesc": "Any political, religion or controversial conversations can be shutdown at any time by a star rank. If you don't cooperate, you will get temporarily kicked from the cc."
+    }
+  },
+  "event": {
+    "1": {
+      "ruleNum": 1,
+      "ruleDesc": "PVM groups of five or more accompanied by a star-rank may request the trip to become an event. (Includes Chambers of Xeric and Theater of Blood)"
+    },
+    "2": {
+      "ruleNum": 2,
+      "ruleDesc": "All valuable drops will be given to a present star-rank."
+    },
+    "3": {
+      "ruleNum": 3,
+      "ruleDesc": "Rules for the event are at the discretion of the star-rank who hosted the event."
+    }
+  },
+  "pvm": {
+    "1": {
+      "ruleNum": 1,
+      "ruleDesc": "All uniques over 1m WILL be split, perpetrators will be reported to Runewatch."
+    },
+    "2": {
+      "ruleNum": 2,
+      "ruleDesc": ":cox~2: - The person who scouts the raid gets the keystone crystal at tightrope."
+    },
+    "3": {
+      "ruleNum": 3,
+      "ruleDesc": ":cox~2: - Don't assume everyone is experienced, be polite and understand that not everyone is Woox."
+    },
+    "4": {
+      "ruleNum": 4,
+      "ruleDesc": ":tob~1: - Split all uniques unless otherwise decided, perpetrators will be reported to Runewatch."
+    },
+    "5": {
+      "ruleNum": 5,
+      "ruleDesc": ":corp: - All onyx bolts and sigil drops are split unless the star-rank host says otherwise."
+    },
+    "6": {
+      "ruleNum": 6,
+      "ruleDesc": ":corp: - Cannons are optional"
+    },
+    "7": {
+      "ruleNum": 7,
+      "ruleDesc": ":corp: - During masses, crystal halberds and dragon halberds are prohibited. (unless otherwise stated by the host)"
+    }
+  }
+}
